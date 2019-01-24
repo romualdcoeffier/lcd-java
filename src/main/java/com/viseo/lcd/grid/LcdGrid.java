@@ -65,7 +65,7 @@ public class LcdGrid {
      * Convert input string to grid output.
      * Not configured symbols in input are ignored.
      */
-    public String outputFor(String input) { // TODO null ?
+    public String outputFor(String input) {
         // get LcdCharacter for each char from input
         List<LcdCharacter> inputChars = input.chars()
                 .mapToObj(c -> this.characters.get((char) c))
