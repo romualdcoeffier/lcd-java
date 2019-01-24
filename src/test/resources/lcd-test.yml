@@ -1,0 +1,14 @@
+height: 2
+width: 4
+allowedSymbols: '._|'
+characters:
+    -
+        input: '0'
+        output:
+            - '.__.'
+            - '|__|'
+    -
+        input: '1'
+        output:
+            - '....'
+            - '...|'
