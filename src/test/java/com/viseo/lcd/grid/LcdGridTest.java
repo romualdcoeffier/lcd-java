@@ -14,7 +14,7 @@ public class LcdGridTest {
     @Test
     public void testEmptyGrid() throws GridException {
         LcdGrid lcdGrid = new LcdGrid(2, 2, " -|");
-        assertThat(lcdGrid.outputFor("0123456789")).isEmpty();
+        assertThat(lcdGrid.outputFor("0123456789")).isEqualTo(System.lineSeparator() + System.lineSeparator());
     }
 
     @Test
@@ -32,7 +32,7 @@ public class LcdGridTest {
     }
 
     @Test
-    public void testExceptionWhenAddCharacterThatDoNotMatchHeightRequirement() throws GridException {
+    public void testExceptionWhenAddCharacterThatDoNotMatchHeightRequirement() {
         LcdGrid grid = new LcdGrid(2, 3, " -|"); // height x width
 
         // output with only 1 line
@@ -49,7 +49,7 @@ public class LcdGridTest {
     }
 
     @Test
-    public void testExceptionWhenAddCharacterThatDoNotMatchWidthRequirement() throws GridException {
+    public void testExceptionWhenAddCharacterThatDoNotMatchWidthRequirement() {
         LcdGrid grid = new LcdGrid(2, 3, " -|"); // height x width
 
         // output with 2 line but second is too shot
@@ -66,7 +66,7 @@ public class LcdGridTest {
     }
 
     @Test
-    public void testExceptionWhenAddCharacterThatDoNotContainAllowedSymbols() throws GridException {
+    public void testExceptionWhenAddCharacterThatDoNotContainAllowedSymbols() {
         LcdGrid grid = new LcdGrid(2, 2, "abc"); // height x width
 
         // 'd' not allowed in output
@@ -80,7 +80,7 @@ public class LcdGridTest {
 
     @Test
     public void testInputToOutput_3x3() throws GridException {
-        LcdGrid grid = new LcdGrid(3, 3, ".-|")
+        LcdGrid grid = new LcdGrid(3, 3, "._|")
                 .addCharacter('0', Arrays.asList("._.", "|.|", "|_|"))
                 .addCharacter('1', Arrays.asList("...", "..|", "..|"))
                 .addCharacter('2', Arrays.asList("._.", "._|", "|_."))
@@ -92,7 +92,7 @@ public class LcdGridTest {
                 .addCharacter('8', Arrays.asList("._.", "|_|", "|_|"))
                 .addCharacter('9', Arrays.asList("._.", "|_|", "..|"));
 
-        assertThat(grid.outputFor("")).isEqualTo("");
+        assertThat(grid.outputFor("")).isEqualTo(System.lineSeparator() + System.lineSeparator() + System.lineSeparator());
         assertThat(grid.outputFor("3")).isEqualTo(
                 "._." + System.lineSeparator() +
                 "._|" + System.lineSeparator() +
@@ -110,6 +110,16 @@ public class LcdGridTest {
                 "._. ... ._." + System.lineSeparator() +
                 "|_| ..| |.|" + System.lineSeparator() +
                 "..| ..| |_|" + System.lineSeparator());
+    }
+
+    @Test
+    public void testInputToOutput_2x4() throws GridException {
+        LcdGrid grid = new LcdGrid(2, 4, "#-")
+                .addCharacter('*', Arrays.asList("####", "####"))
+                .addCharacter('U', Arrays.asList("#--#", "####"));
+        assertThat(grid.outputFor("U*")).isEqualTo(
+                "#--# ####" + System.lineSeparator() +
+                "#### ####" + System.lineSeparator());
     }
 
 }
