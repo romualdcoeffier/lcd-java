@@ -9,7 +9,7 @@
 
 - cd lcd-java
 - mvnw clean package (Windows)
-- ./mvnw clean pacakage (Linux)
+- ./mvnw clean package (Linux)
 
 ## How to run
 
