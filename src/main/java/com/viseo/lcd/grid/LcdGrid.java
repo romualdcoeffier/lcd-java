@@ -20,7 +20,7 @@ public class LcdGrid {
     private final String allowedSymbols;
 
     /** All input/output converters by input. */
-    private final Map<Character, LcdCharacter> characters = new HashMap();
+    private final Map<Character, LcdCharacter> characters = new HashMap<>();
 
     public LcdGrid(int height, int width, String allowedSymbols) {
         if (height < 2) {
