@@ -1,0 +1,69 @@
+# grid size (min 2x2)
+height: 3
+width: 3
+
+# allowed symbols in output
+allowedSymbols: ' _|'
+
+# characters output
+characters:
+    -
+        input: '0'
+        output:
+            - ' _ '
+            - '| |'
+            - '|_|'
+    -
+        input: '1'
+        output:
+            - '   '
+            - '  |'
+            - '  |'
+    -
+        input: '2'
+        output:
+            - ' _ '
+            - ' _|'
+            - '|_ '
+    -
+        input: '3'
+        output:
+            - ' _ '
+            - ' _|'
+            - ' _|'
+    -
+        input: '4'
+        output:
+            - '   '
+            - '|_|'
+            - '  |'
+    -
+        input: '5'
+        output:
+            - ' _ '
+            - '|_ '
+            - ' _|'
+    -
+        input: '6'
+        output:
+            - ' _ '
+            - '|_ '
+            - '|_|'
+    -
+        input: '7'
+        output:
+            - ' _ '
+            - '  |'
+            - '  |'
+    -
+        input: '8'
+        output:
+            - ' _ '
+            - '|_|'
+            - '|_|'
+    -
+        input: '9'
+        output:
+            - ' _ '
+            - '|_|'
+            - '  |'
